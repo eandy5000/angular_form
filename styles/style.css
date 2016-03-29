@@ -1,0 +1,13 @@
+.ng-invalid.ng-dirty {
+    border-color : red;
+    border-width: 3px;
+}
+
+.ng-valid {
+    border-color : green;
+    border-width: 3px;
+}
+
+form p {
+    display: inline;
+}

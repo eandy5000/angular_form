@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body ng-controller="FormCtrl">
+    <h3>Form with Validation</h3>
+    <form name = "testForm" ng-submit="testForm.$valid && formSub()" novalidate>
+        <label>Name:</label>
+        <input type="text" name = "name" ng-model = "person.name" ng-minlength="5" required> 
+        <p ng-show = "testForm.name.$dirty && testForm.name.$invalid"> Name must be at least 5 characters</p>
+        <br>
+        <label>Email:</label>
+        <input type="email" name = "email" ng-model = "person.email" required>
+        <p ng-show="testForm.email.$dirty && testForm.email.$invalid">Enter a valid email address</p>
+        <br>
+        <label>Birthday:</label>
+        <input type="date" name = "birthday" ng-model = "person.birthday" required>
+        <p ng-show = "testForm.birthday.$dirty && testForm.birthday.$invalid">Please enter your birthday</p>
+        <br>
+        <input type="submit" value="click me">
+        
+    </form>
+    <div>
+        <h3>Form is complete {{testForm.$valid}}</h3>
+    </div>
+    
+    <div ng-show = "people.length > 0">
+        <h3>Valid People</h3>
+        <div ng-repeat = "person in people">
+            <p><strong>{{person.name}}</strong></p>
+        </div>
+        
+    </div>
+    
+    
+    <script src="../scripts/angular.js" ></script>
+    <script src="../scripts/app.js" ></script>
+</body>
+</html>
